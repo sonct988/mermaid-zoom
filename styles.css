@@ -1,0 +1,177 @@
+/* ── Mermaid Zoom Plugin v1.0.3 ── Sonct ── */
+
+/* ── Default in note ── */
+.mermaid svg {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block;
+}
+
+.mermaid-zoom-wrapper {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding-bottom: 4px;
+}
+
+/* ── Zoom button — below diagram ── */
+.mermaid-zoom-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 5px;
+  padding: 3px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-secondary);
+  color: var(--text-muted);
+  font-size: 12px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s, background 0.15s, color 0.15s;
+  pointer-events: none;
+}
+.mermaid-zoom-wrapper:hover .mermaid-zoom-btn {
+  opacity: 1;
+  pointer-events: auto;
+}
+.mermaid-zoom-btn:hover {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  border-color: var(--interactive-accent);
+}
+
+/* ════════════════════════════════════════
+   POPUP
+   ════════════════════════════════════════ */
+
+.mz-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(3px);
+}
+.mz-overlay.theme-dark  { background: rgba(0,0,0,0.82); }
+.mz-overlay.theme-light { background: rgba(0,0,0,0.40); }
+
+/* ── Popup shell ── */
+.mz-popup {
+  width: 93vw;
+  height: 90vh;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 12px 60px rgba(0,0,0,0.7);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.mz-overlay.theme-dark  .mz-popup { background: #1e1e2e; border-color: #313244; }
+.mz-overlay.theme-light .mz-popup { background: #f0f0f0; border-color: #ccc; }
+
+/* ── Toolbar ── */
+.mz-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 10px;
+  flex-shrink: 0;
+  user-select: none;
+}
+.mz-overlay.theme-dark  .mz-toolbar { background: #16161e; border-bottom: 1px solid #313244; }
+.mz-overlay.theme-light .mz-toolbar { background: #e2e2e2; border-bottom: 1px solid #c0c0c0; }
+
+/* ── Toolbar buttons ── */
+.mz-btn {
+  width: 30px; height: 30px;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.1s, color 0.1s;
+  flex-shrink: 0;
+  border: 1px solid transparent;
+}
+.mz-overlay.theme-dark  .mz-btn { background: #2a2a3e; color: #cdd6f4; border-color: #45475a; }
+.mz-overlay.theme-dark  .mz-btn:hover { background: #45475a; }
+.mz-overlay.theme-light .mz-btn { background: #fff; color: #333; border-color: #bbb; }
+.mz-overlay.theme-light .mz-btn:hover { background: #e0e0e0; }
+
+.mz-btn.mz-close {
+  margin-left: auto;
+  background: transparent !important;
+  border-color: transparent !important;
+  font-size: 18px;
+}
+.mz-overlay.theme-dark  .mz-btn.mz-close         { color: #6c7086; }
+.mz-overlay.theme-dark  .mz-btn.mz-close:hover   { background: #c0392b !important; color: #fff !important; }
+.mz-overlay.theme-light .mz-btn.mz-close         { color: #999; }
+.mz-overlay.theme-light .mz-btn.mz-close:hover   { background: #c0392b !important; color: #fff !important; }
+
+.mz-zoom-level {
+  font-size: 12px;
+  min-width: 44px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+.mz-overlay.theme-dark  .mz-zoom-level { color: #a6adc8; }
+.mz-overlay.theme-light .mz-zoom-level { color: #555; }
+
+.mz-theme-badge {
+  font-size: 11px;
+  padding: 1px 7px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+.mz-overlay.theme-dark  .mz-theme-badge { background: #313244; color: #89b4fa; }
+.mz-overlay.theme-light .mz-theme-badge { background: #d0d0d0; color: #444; }
+
+.mz-divider {
+  width: 1px; height: 20px;
+  margin: 0 4px;
+}
+.mz-overlay.theme-dark  .mz-divider { background: #45475a; }
+.mz-overlay.theme-light .mz-divider { background: #bbb; }
+
+/* ── Canvas ── */
+.mz-canvas {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  cursor: grab;
+  /* background set inline via JS so it updates instantly on theme toggle */
+}
+.mz-canvas.dragging { cursor: grabbing; }
+
+/* ── SVG container ── */
+.mz-inner {
+  position: absolute;
+  transform-origin: 0 0;
+  will-change: transform;
+  line-height: 0;
+}
+.mz-inner svg {
+  display: block;
+  max-width: none !important;
+  height: auto !important;
+  /* no background on SVG itself — canvas provides the bg */
+  background: transparent !important;
+}
+
+/* ── Hint bar ── */
+.mz-hint {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  pointer-events: none;
+  white-space: nowrap;
+  padding: 2px 12px;
+  border-radius: 10px;
+  opacity: 0.75;
+}
+.mz-overlay.theme-dark  .mz-hint { background: #313244; color: #a6adc8; }
+.mz-overlay.theme-light .mz-hint { background: #ddd;    color: #555; }
