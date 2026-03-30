@@ -17,6 +17,7 @@
 | **Touch support** | Pinch-to-zoom and one-finger drag on mobile / tablet |
 
 ---
+## Demo
 
 ![demo](https://i.imgur.com/x1xFYFY.gif)
 ---
