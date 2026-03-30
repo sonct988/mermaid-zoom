@@ -18,6 +18,9 @@
 
 ---
 
+![demo](https://i.imgur.com/x1xFYFY.gif)
+---
+
 ## Installation
 
 The plugin is not yet available in Community Plugins — install manually:
