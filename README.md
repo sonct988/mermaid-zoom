@@ -72,7 +72,7 @@ Alternatively, use the keyboard shortcut: **`Ctrl + Click`** on the diagram.
 #### Toolbar buttons
 
 ```
-[ − ] [100%] [ + ]  |  [ ⟳ Reset ] [ ⊡ Fit ]  |  [ ☀️/🌙 ] [Dark]  [ ✕ ]
+[ − ] [100%] [ + ]  |  [ ⟳ Reset ] [ ⊡ Fit ]  |  [ ✕ ]
 ```
 
 

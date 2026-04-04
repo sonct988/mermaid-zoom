@@ -67,6 +67,9 @@ Hoặc dùng phím tắt: **`Ctrl + Click`** vào diagram.
 
 #### Bằng nút toolbar
 
+```
+[ − ] [100%] [ + ]  |  [ ⟳ Reset ] [ ⊡ Fit ]  |  [ ✕ ]
+```
 
 | Nút | Chức năng |
 |---|---|
