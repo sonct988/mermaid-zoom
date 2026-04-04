@@ -1,10 +1,10 @@
 {
   "id": "mermaid-zoom",
   "name": "Mermaid Zoom",
-  "version": "1.0.3",
+  "version": "1.0.1",
   "minAppVersion": "1.0.0",
-  "description": "Zoom, pan and navigate Mermaid diagrams with a popup overlay. Supports dark/light mode.",
+  "description": "Zoom, pan and navigate Mermaid diagrams with a popup overlay.",
   "author": "Sonct",
-  "authorUrl": "",
+  "authorUrl": "https://github.com/sonct988/",
   "isDesktopOnly": false
 }

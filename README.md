@@ -12,14 +12,13 @@
 | **Zoom persistence** | Zoom level does not reset when panning — state is always preserved |
 | **Drag to pan** | Hold left mouse button and drag to move the diagram |
 | **Fit to window** | Automatically scales to fit the screen when opening the popup |
-| **Dark / Light mode** | Automatically syncs with the current Obsidian theme, with a quick toggle button inside the popup |
 | **Default `max-width: 100%`** | Small and medium diagrams display nicely inside the note without breaking layout |
 | **Touch support** | Pinch-to-zoom and one-finger drag on mobile / tablet |
 
 ---
 ## Demo
 
-![demo](https://i.imgur.com/x1xFYFY.gif)
+![demo](https://i.imgur.com/1ncpjBM.jpeg)
 ---
 
 ## Installation
@@ -68,7 +67,6 @@ Alternatively, use the keyboard shortcut: **`Ctrl + Click`** on the diagram.
 | `-` or `_` | Zoom out |
 | `0` | Reset to 100% and original position |
 | `F` | Fit to window |
-| `T` | Toggle Dark / Light mode |
 | `Esc` | Close popup |
 
 #### Toolbar buttons
@@ -84,8 +82,6 @@ Alternatively, use the keyboard shortcut: **`Ctrl + Click`** on the diagram.
 | `100%` | Shows current zoom level |
 | `⟳` | Reset zoom to 100% and original position |
 | `⊡` | Fit diagram to popup window |
-| `☀️` / `🌙` | Toggle between Dark / Light mode |
-| `Dark` / `Light` | Badge indicating current theme |
 | `✕` | Close popup |
 
 #### On mobile / tablet
@@ -95,17 +91,6 @@ Alternatively, use the keyboard shortcut: **`Ctrl + Click`** on the diagram.
 | **Two-finger pinch** | Zoom in / out |
 | **One-finger drag** | Pan the diagram |
 
----
-
-## Dark / Light Mode
-
-The plugin automatically syncs with the current Obsidian theme when opening the popup:
-
-- **Obsidian uses Dark** → popup dark background, light text
-- **Obsidian uses Light** → popup light background, dark text
-
-The `☀️/🌙` button in the toolbar allows you to switch themes directly inside the popup without leaving it.  
-This change also applies to Obsidian globally (two-way sync).
 
 ---
 

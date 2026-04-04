@@ -12,7 +12,6 @@
 | **Giữ nguyên độ zoom** | Zoom không reset khi di chuyển — trạng thái luôn được lưu |
 | **Drag to pan** | Giữ chuột trái và kéo để di chuyển diagram |
 | **Fit to window** | Tự động scale vừa màn hình khi mở popup |
-| **Dark / Light mode** | Tự động sync theo theme Obsidian đang dùng, có nút chuyển nhanh trong popup |
 | **Mặc định `max-width: 100%`** | Diagram nhỏ và vừa hiển thị đẹp ngay trong note, không bị vỡ layout |
 | **Touch support** | Pinch-to-zoom và drag 1 ngón trên mobile / tablet |
 
@@ -64,14 +63,10 @@ Hoặc dùng phím tắt: **`Ctrl + Click`** vào diagram.
 | `-` hoặc `_` | Zoom out |
 | `0` | Reset về 100% và vị trí gốc |
 | `F` | Fit vừa cửa sổ |
-| `T` | Chuyển Dark / Light mode |
 | `Esc` | Đóng popup |
 
 #### Bằng nút toolbar
 
-```
-[ − ] [100%] [ + ]  |  [ ⟳ Reset ] [ ⊡ Fit ]  |  [ ☀️/🌙 ] [Dark]  [ ✕ ]
-```
 
 | Nút | Chức năng |
 |---|---|
@@ -79,8 +74,6 @@ Hoặc dùng phím tắt: **`Ctrl + Click`** vào diagram.
 | `100%` | Hiển thị mức zoom hiện tại |
 | `⟳` | Reset zoom về 100%, về vị trí gốc |
 | `⊡` | Fit diagram vừa cửa sổ popup |
-| `☀️` / `🌙` | Chuyển qua lại Dark / Light mode |
-| `Dark` / `Light` | Badge hiển thị theme đang dùng |
 | `✕` | Đóng popup |
 
 #### Trên mobile / tablet
@@ -89,18 +82,6 @@ Hoặc dùng phím tắt: **`Ctrl + Click`** vào diagram.
 |---|---|
 | **Pinch 2 ngón** | Zoom in / out |
 | **Kéo 1 ngón** | Di chuyển diagram |
-
----
-
-## Dark / Light Mode
-
-Plugin tự động sync với theme Obsidian đang dùng khi mở popup:
-
-- **Obsidian dùng Dark** → popup nền tối, màu chữ sáng
-- **Obsidian dùng Light** → popup nền sáng, màu chữ tối
-
-Nút `☀️/🌙` trong toolbar cho phép chuyển theme ngay trong popup mà không cần ra ngoài.  
-Thay đổi này cũng áp dụng lên toàn bộ Obsidian (sync hai chiều).
 
 ---
 
